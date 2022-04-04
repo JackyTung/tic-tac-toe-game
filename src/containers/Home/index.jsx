@@ -17,7 +17,9 @@ const Home = () => {
       This is home page, my name is:
       <StyledText>{name}</StyledText>
       <nav>
-        <Link to="/about">About</Link>
+        <div>
+          <Link to="/game">Tic-Tac-Toe Game</Link>
+        </div>
       </nav>
     </StyledContainer>
   );
