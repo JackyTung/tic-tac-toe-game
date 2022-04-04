@@ -1,14 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const useTicTacToe = ({ canvasSize }) => {
   const canvasRef = useRef(null);
   const gridSize = Math.floor(canvasSize / 3);
-  const gridArray = new Array(gridSize * gridSize);
+  const [gridArray, setGridArray] = useState(new Array(gridSize * gridSize));
+  const [winner, setWinner] = useState(null);
 
   // useRef to prevent rerender
-  const player = useRef("1");
+  const player = useRef("player1");
 
-  const drawGrid = (context) => {
+  const drawGrid = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.lineWidth = 2;
+    context.strokeStyle = "#55505C";
+    context.beginPath();
     for (let i = 1; i < 3; i++) {
       const x = i * gridSize;
       context.moveTo(x, 0);
@@ -81,32 +87,41 @@ const useTicTacToe = ({ canvasSize }) => {
     const gridX = Math.floor(canvasMousePosition.x / gridSize);
     const gridY = Math.floor(canvasMousePosition.y / gridSize);
     const arrayIndex = gridX + gridY * 3;
-    if (gridArray[arrayIndex]) {
+    if (gridArray[arrayIndex] || winner) {
       return;
     }
 
-    if (player.current === "1") {
+    if (player.current === "player1") {
       drawO(gridX, gridY);
       gridArray[arrayIndex] = "O";
-      player.current = "2";
+      player.current = "player2";
     } else {
       drawX(gridX, gridY);
       gridArray[arrayIndex] = "X";
-      player.current = "1";
+      player.current = "player1";
     }
+  };
+
+  const handleReset = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    drawGrid();
+    setGridArray(new Array(gridSize * gridSize));
   };
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
     canvas.width = canvasSize;
     canvas.height = canvasSize;
-    drawGrid(context);
+    drawGrid();
   }, []);
 
   return {
     canvasRef,
     handleClickGrid,
+    handleReset,
+    winner,
   };
 };
 

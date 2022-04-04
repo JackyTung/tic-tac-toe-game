@@ -3,6 +3,7 @@
   "plugins": ["import", "simple-import-sort", "react", "react-hooks"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": 0,
     "simple-import-sort/imports": [
       2,
       {
