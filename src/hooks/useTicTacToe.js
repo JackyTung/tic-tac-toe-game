@@ -1,5 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 
+import { checkWinner } from "@/utils/tictactoe";
+
+const PLAYER = {
+  NO1: "player1",
+  NO2: "player2",
+};
+const SYMBOL = {
+  O: "O",
+  X: "X",
+};
+
 const useTicTacToe = ({ canvasSize }) => {
   const canvasRef = useRef(null);
   const gridSize = Math.floor(canvasSize / 3);
@@ -7,7 +18,7 @@ const useTicTacToe = ({ canvasSize }) => {
   const [winner, setWinner] = useState(null);
 
   // useRef to prevent rerender
-  const player = useRef("player1");
+  const player = useRef(PLAYER.NO1);
 
   const drawGrid = () => {
     const canvas = canvasRef.current;
@@ -91,14 +102,20 @@ const useTicTacToe = ({ canvasSize }) => {
       return;
     }
 
-    if (player.current === "player1") {
+    if (player.current === PLAYER.NO1) {
       drawO(gridX, gridY);
-      gridArray[arrayIndex] = "O";
-      player.current = "player2";
+      gridArray[arrayIndex] = SYMBOL.O;
+      if (checkWinner(gridArray, SYMBOL.O)) {
+        setWinner(PLAYER.NO1);
+      }
+      player.current = PLAYER.NO2;
     } else {
       drawX(gridX, gridY);
-      gridArray[arrayIndex] = "X";
-      player.current = "player1";
+      gridArray[arrayIndex] = SYMBOL.X;
+      if (checkWinner(gridArray, SYMBOL.X)) {
+        setWinner(PLAYER.NO2);
+      }
+      player.current = PLAYER.NO1;
     }
   };
 
@@ -108,6 +125,7 @@ const useTicTacToe = ({ canvasSize }) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawGrid();
     setGridArray(new Array(gridSize * gridSize));
+    setWinner(null);
   };
 
   useEffect(() => {
