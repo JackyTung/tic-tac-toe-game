@@ -1,13 +1,6 @@
 import React from "react";
 
-import useTicTacToe from "@/hooks/useTicTacToe";
-
-const CANVAS_SIZE = 360;
-
-const TicTacToe = () => {
-  const { canvasRef, handleClickGrid } = useTicTacToe({
-    canvasSize: CANVAS_SIZE,
-  });
+const TicTacToe = ({ canvasRef, handleClickGrid }) => {
   return (
     <div>
       <canvas
