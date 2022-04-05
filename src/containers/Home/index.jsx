@@ -23,6 +23,9 @@ const Home = () => {
         <div>
           <Link to="/svg-playground">Svg Playground</Link>
         </div>
+        <div>
+          <Link to="/canvas-playground">Canvas Playground</Link>
+        </div>
       </nav>
     </StyledContainer>
   );

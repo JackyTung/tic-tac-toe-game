@@ -126,6 +126,7 @@ const useTicTacToe = ({ canvasSize }) => {
     drawGrid();
     setGridArray(new Array(gridSize * gridSize));
     setWinner(null);
+    player.current = PLAYER.NO1;
   };
 
   useEffect(() => {
