@@ -17,6 +17,41 @@ export const StyledContainer = styled.div`
       font-size: 0.8em;
       display: grid;
       grid-template-columns: auto 3fr;
+
+      svg {
+        stroke-width: 5;
+        stroke: black;
+        width: 2em;
+        fill: white;
+
+        .box {
+          stroke-dasharray: 320;
+          stroke-dashoffset: 0;
+          fill: white;
+        }
+
+        .check {
+          stroke-dasharray: 70;
+          stroke-dashoffset: 70;
+          fill: none;
+        }
+      }
+
+      span {
+        padding-top: 0.3em;
+      }
+    }
+
+    &:checked + label {
+      .box {
+        stroke-dashoffset: 320;
+        transition: stroke-dashoffset 0.3s linear;
+      }
+
+      .check {
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 0.3s linear;
+      }
     }
   }
 `;
