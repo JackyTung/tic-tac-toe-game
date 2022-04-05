@@ -28,12 +28,14 @@ export const StyledContainer = styled.div`
           stroke-dasharray: 320;
           stroke-dashoffset: 0;
           fill: white;
+          transition: stroke-dashoffset 0.3s linear;
         }
 
         .check {
           stroke-dasharray: 70;
           stroke-dashoffset: 70;
           fill: none;
+          transition: stroke-dashoffset 0.3s linear;
         }
       }
 
@@ -45,12 +47,10 @@ export const StyledContainer = styled.div`
     &:checked + label {
       .box {
         stroke-dashoffset: 320;
-        transition: stroke-dashoffset 0.3s linear;
       }
 
       .check {
         stroke-dashoffset: 0;
-        transition: stroke-dashoffset 0.3s linear;
       }
     }
   }
