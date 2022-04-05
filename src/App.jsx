@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Game from "@/containers/Game/index.jsx";
 import Home from "@/containers/Home/index.jsx";
+import SvgPlayGround from "@/containers/SvgPlayGround/index.jsx";
 import configureStore from "@/redux/rootStore";
 
 const store = configureStore();
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="game" element={<Game />} />
+          <Route path="svg-playground" element={<SvgPlayGround />} />
         </Routes>
       </Provider>
     </div>

@@ -20,6 +20,9 @@ const Home = () => {
         <div>
           <Link to="/game">Tic-Tac-Toe Game</Link>
         </div>
+        <div>
+          <Link to="/svg-playground">Svg Playground</Link>
+        </div>
       </nav>
     </StyledContainer>
   );
