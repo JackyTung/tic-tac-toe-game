@@ -2,10 +2,14 @@ import React from "react";
 
 import useDotAnimation from "@/hooks/useDotAnimation";
 
-const CANVAS_SIZE = 600;
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 450;
 
 const PlayGround = () => {
-  const { canvasRef } = useDotAnimation({ canvasSize: CANVAS_SIZE });
+  const { canvasRef } = useDotAnimation({
+    canvasWidth: CANVAS_WIDTH,
+    canvasHeight: CANVAS_HEIGHT,
+  });
 
   return (
     <div>
