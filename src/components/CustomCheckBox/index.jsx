@@ -7,13 +7,7 @@ const CustomCheckBox = () => {
     <StyledContainer>
       <input type="checkbox" name="cb" id="cb" />
       <label htmlFor="cb" id="checkbox">
-        <svg
-          viewBox="0 0 100 100"
-          strokeWidth={5}
-          stroke="black"
-          width={"2em"}
-          fill="white"
-        >
+        <svg viewBox="0 0 100 100">
           <path
             className="box"
             fill="white"
