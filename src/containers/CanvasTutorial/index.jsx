@@ -4,8 +4,8 @@ import useCanvasTutorial from "@/hooks/useCanvasTutorial";
 import { StyledContainer } from "./styles";
 const CanvasTutorial = () => {
   const { canvasRef } = useCanvasTutorial({
-    canvasWidth: 600,
-    canvasHeight: 400,
+    canvasWidth: 650,
+    canvasHeight: 500,
   });
   return (
     <StyledContainer>
