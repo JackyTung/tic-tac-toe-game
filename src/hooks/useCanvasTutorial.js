@@ -26,13 +26,43 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     ctx.stroke();
   };
 
+  const drawLineJoin = () => {
+    /*
+      Line joins -> ctx.lineJoin = "miter|bevel|round"
+    */
+    const ctx = canvasRef.current.getContext("2d");
+    ctx.beginPath(); // reset the context state
+    ctx.lineWidth = 20;
+    ctx.lineJoin = "round";
+    ctx.moveTo(30, 30);
+    ctx.lineTo(130, 30);
+    ctx.lineTo(130, 130);
+    ctx.lineTo(30, 130);
+    ctx.lineTo(30, 230);
+    ctx.lineTo(130, 230);
+    ctx.stroke();
+  };
+
+  const drawArc = () => {
+    const radian = Math.PI / 180;
+    const ctx = canvasRef.current.getContext("2d");
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 10;
+    // arc (x,y, radius, startAngle, endAngle, counterClockWise)
+    ctx.arc(100, 100, 50, 0 * radian, 360 * radian, false);
+    ctx.stroke();
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
 
     //drawLine();
-    drawComplexLine();
+    //drawComplexLine();
+    //drawLineJoin();
+    drawArc();
   }, []);
 
   return {
