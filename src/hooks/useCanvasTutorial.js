@@ -54,6 +54,19 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     ctx.stroke();
   };
 
+  const drawRect = () => {
+    const ctx = canvasRef.current.getContext("2d");
+    ctx.beginPath();
+    ctx.lineWidth = 10;
+    ctx.lineJoin = "round";
+    ctx.fillStyle = "blue";
+
+    // x, y, w, h
+    ctx.rect(50, 200, 100, 80); // fillRect, strokeRect
+    ctx.stroke();
+    ctx.fill();
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     canvas.width = canvasWidth;
@@ -62,7 +75,8 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     //drawLine();
     //drawComplexLine();
     //drawLineJoin();
-    drawArc();
+    //drawArc();
+    drawRect();
   }, []);
 
   return {
