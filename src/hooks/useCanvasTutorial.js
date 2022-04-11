@@ -67,6 +67,28 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     ctx.fill();
   };
 
+  const chessBoard = () => {
+    const lightCellColor = "#ddb180";
+    const darkCellColor = "#7c330c";
+    const x = 125;
+    const y = 50;
+    const cellWidth = 50;
+    const chessBoardWidth = 400;
+    const ctx = canvasRef.current.getContext("2d");
+
+    // Frame
+    ctx.strokeStyle = "black";
+    ctx.strokeRect(x, y, chessBoardWidth, chessBoardWidth);
+
+    // First row
+    for (let i = 0; i < Math.floor(chessBoardWidth / cellWidth); i++) {
+      for (let j = 0; j < Math.floor(chessBoardWidth / cellWidth); j++) {
+        ctx.fillStyle = (i + j) % 2 === 0 ? lightCellColor : darkCellColor;
+        ctx.fillRect(x + i * cellWidth, y + j * 50, cellWidth, cellWidth);
+      }
+    }
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     canvas.width = canvasWidth;
@@ -76,7 +98,8 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     //drawComplexLine();
     //drawLineJoin();
     //drawArc();
-    drawRect();
+    //drawRect();
+    chessBoard();
   }, []);
 
   return {
