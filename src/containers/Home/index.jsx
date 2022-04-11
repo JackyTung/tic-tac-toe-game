@@ -26,6 +26,9 @@ const Home = () => {
         <div>
           <Link to="/canvas-playground">Canvas Playground</Link>
         </div>
+        <div>
+          <Link to="/canvas-tutorial">Canvas Tutorial</Link>
+        </div>
       </nav>
     </StyledContainer>
   );
