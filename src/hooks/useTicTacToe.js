@@ -11,6 +11,8 @@ const SYMBOL = {
   X: "X",
 };
 
+const LINE_WIDTH = 13;
+
 const useTicTacToe = ({ canvasSize }) => {
   const canvasRef = useRef(null);
   const gridSize = Math.floor(canvasSize / 3);
@@ -23,17 +25,19 @@ const useTicTacToe = ({ canvasSize }) => {
   const drawGrid = () => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    context.lineWidth = 2;
+    context.lineWidth = LINE_WIDTH;
     context.strokeStyle = "#55505C";
     context.beginPath();
     for (let i = 1; i < 3; i++) {
-      const x = i * gridSize;
+      const x = i * gridSize - 0.5 * (LINE_WIDTH % 2);
+      //const x = i * gridSize;
       context.moveTo(x, 0);
       context.lineTo(x, canvasSize);
     }
 
     for (let i = 1; i < 3; i++) {
-      const y = i * gridSize;
+      const y = i * gridSize - 0.5 * (LINE_WIDTH % 2);
+      //const y = i * gridSize;
       context.moveTo(0, y);
       context.lineTo(canvasSize, y);
     }

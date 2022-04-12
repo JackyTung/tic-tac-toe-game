@@ -9,7 +9,7 @@ import {
 } from "./styles";
 import TicTacToe from "./TicTacToe/index.jsx";
 
-const CANVAS_SIZE = 360;
+const CANVAS_SIZE = 410;
 
 const Game = () => {
   const { canvasRef, handleClickGrid, handleReset, winner } = useTicTacToe({
