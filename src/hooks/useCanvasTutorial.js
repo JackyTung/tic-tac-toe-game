@@ -142,6 +142,29 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     ctx.stroke();
   };
 
+  const drawShape = (radius, inset, n) => {
+    const ctx = canvasRef.current.getContext("2d");
+    const width = canvasRef.current.width;
+    const height = canvasRef.current.height;
+    ctx.beginPath();
+    ctx.save();
+
+    // translate to middle
+    ctx.translate(width / 2, height / 2);
+    ctx.moveTo(0, 0 - radius);
+    for (let i = 0; i < n; i++) {
+      ctx.rotate(Math.PI / n);
+      ctx.lineTo(0, 0 - radius * inset);
+      ctx.rotate(Math.PI / n);
+      ctx.lineTo(0, 0 - radius);
+    }
+
+    ctx.restore();
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     canvas.width = canvasWidth;
@@ -154,7 +177,8 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     //drawRect();
     //chessBoard();
     //drawGrid();
-    drawGridClear();
+    //drawGridClear();
+    drawShape(100, 0.6, 6);
   }, []);
 
   return {
