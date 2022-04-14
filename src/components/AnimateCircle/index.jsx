@@ -9,7 +9,7 @@ const AnimateCircle = () => {
   return (
     <StyledContainer>
       <svg viewBox="0 0 100 100">
-        <circle fill="blue" cx="50" cy="50" r="40" onClick={handleClick} />
+        <circle cx="50" cy="50" r="40" onClick={handleClick} />
       </svg>
     </StyledContainer>
   );

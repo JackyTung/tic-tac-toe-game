@@ -12,6 +12,7 @@ export const StyledContainer = styled.div`
 
   svg {
     circle {
+      fill: ${({ theme }) => theme.colors?.primary?.main};
       animation: ${pulse} 2s alternate infinite;
     }
   }

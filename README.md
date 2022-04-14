@@ -1,25 +1,32 @@
-## Available Scripts
+This is a tic-tac-toe-game practice project, build by [My React App](https://github.com/JackyTung/my-react-app-2022)
 
-tic-tac-toe-game by using canvas
+- React
+- Redux
+- Redux-observable
+- Reselect
+- Eslint
+- Style Components
+- Style System
 
-## Code base structure:
+## Getting Started
 
-This code base is from [My React App](https://github.com/JackyTung/my-react-app-2022).
+First, run the development server:
 
-### Paste following to .vscode/settings.json
-
+```bash
+yarn install
+yarn dev
 ```
-{
-    "editor.fontSize": 14,
-    "editor.tabSize": 2,
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    "javascript.format.enable": false,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-}
-```
+
+## Pages
+
+1. /game
+
+- tic-tao-toe game practice by using canvas
+
+2. /canvas-playground
+
+- cool canvas dot interaction practice
+
+3. /svg-playground
+
+- svg animation practice
