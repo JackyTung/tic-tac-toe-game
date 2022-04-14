@@ -13,7 +13,6 @@ const CountDown = () => {
     let rawTimeFraction = timeLeft / countdown;
     rawTimeFraction = rawTimeFraction - (1 / countdown) * (1 - rawTimeFraction);
     const left = Math.floor(rawTimeFraction * 283);
-    console.log("left", left);
     if (left <= 0) {
       return "0 283";
     }
