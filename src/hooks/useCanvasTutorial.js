@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 
+import chestQueenImage from "@/images/chest_queen.jpeg";
 const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
   const canvasRef = useRef(null);
 
@@ -165,6 +166,29 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     ctx.fill();
   };
 
+  const drawImage = () => {
+    const ctx = canvasRef.current.getContext("2d");
+    const width = canvasRef.current.width;
+    const height = canvasRef.current.height;
+    const image = new Image();
+    image.src = chestQueenImage;
+    image.onload = function () {
+      const imageWidth = image.width;
+      const imageHeight = image.height;
+      let scale;
+      if (imageWidth > imageHeight) {
+        scale = width / imageWidth;
+      } else {
+        scale = height / imageHeight;
+      }
+
+      const dw = imageWidth * scale * 0.7;
+      const dh = imageHeight * scale * 0.7;
+
+      ctx.drawImage(image, 50, 0, dw, dh);
+    };
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     canvas.width = canvasWidth;
@@ -178,7 +202,8 @@ const useCanvasTutorial = ({ canvasWidth, canvasHeight }) => {
     //chessBoard();
     //drawGrid();
     //drawGridClear();
-    drawShape(100, 0.6, 6);
+    //drawShape(100, 0.6, 6);
+    drawImage();
   }, []);
 
   return {
