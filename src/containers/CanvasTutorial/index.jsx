@@ -2,6 +2,7 @@ import React from "react";
 
 import useCanvasTutorial from "@/hooks/useCanvasTutorial";
 import { StyledContainer } from "./styles";
+
 const CanvasTutorial = () => {
   const { canvasRef } = useCanvasTutorial({
     canvasWidth: 650,
